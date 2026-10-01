@@ -33,7 +33,315 @@ button{border:0;border-radius:10px;padding:11px 15px;font-weight:750;cursor:poin
 /* ===== STUDY CENTER ===== */
 .study-wrap{margin-top:20px}.study-card{padding:26px}.study-head{display:flex;justify-content:space-between;align-items:flex-start;gap:15px;flex-wrap:wrap}.study-head h2{margin:0 0 7px;font-size:27px}.study-head p{margin:0;color:var(--muted);line-height:1.6}.study-tabs{display:flex;gap:8px;flex-wrap:wrap;margin:20px 0}.study-tab{background:#eef2f7;color:#243044}.study-tab.active{background:var(--blue);color:#fff}.study-panel{display:none}.study-panel.active{display:block}.note-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}.note{border:1px solid var(--border);border-radius:14px;padding:18px;background:#fff}.note h3{margin:0 0 10px;color:#173b7a}.note h4{margin:15px 0 7px;color:#243044}.note p,.note li{line-height:1.65}.note ul,.note ol{padding-left:22px}.formula{background:#f5f8ff;border-left:4px solid var(--blue);padding:11px 13px;border-radius:7px;margin:10px 0;font-family:ui-monospace,SFMono-Regular,Consolas,monospace;line-height:1.6}.tip{background:#effaf4;border-left:4px solid #16a34a;padding:11px 13px;border-radius:7px;margin-top:10px;line-height:1.6}.trap{background:#fff7ed;border-left:4px solid #f59e0b;padding:11px 13px;border-radius:7px;margin-top:10px;line-height:1.6}.danger-note{background:#fef2f2;border-left:4px solid #dc2626;padding:11px 13px;border-radius:7px;margin-top:10px;line-height:1.6}.mini-table{width:100%;border-collapse:collapse;margin-top:10px}.mini-table th,.mini-table td{border:1px solid var(--border);padding:9px;text-align:left;vertical-align:top}.mini-table th{background:#f1f5f9}.checklist{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-top:10px}.check{background:#f8fafc;border:1px solid var(--border);padding:9px;border-radius:8px}.note-links{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}.note-link{background:#eef4ff;color:var(--blue);border:1px solid #cbdcff}.study-search{width:100%;padding:12px;border:1px solid var(--border);border-radius:10px;font-size:14px;margin:5px 0 15px}.back-study{margin-top:20px}
 @media(max-width:800px){.note-grid{grid-template-columns:1fr}.checklist{grid-template-columns:1fr}}
-</style></head>
+</style>
+<style id="mobile-responsive-overrides">
+/* ===== Mobile / Tablet Responsive Overrides ===== */
+* { box-sizing: border-box; }
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+img, svg, video, canvas {
+  max-width: 100%;
+  height: auto;
+}
+
+button, input, select, textarea {
+  font: inherit;
+}
+
+button {
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+/* Main navigation */
+@media (max-width: 768px) {
+  nav, .navbar, .top-nav, .main-nav {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+  }
+
+  nav ul, .navbar ul, .top-nav ul, .main-nav ul {
+    gap: 6px !important;
+    padding: 8px 10px !important;
+    overflow-x: auto;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  nav a, .navbar a, .top-nav a, .main-nav a {
+    padding: 9px 12px !important;
+    font-size: 13px !important;
+  }
+
+  /* App containers */
+  .container, .app, .app-container, .main-container,
+  .content, .page, .wrapper {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+  }
+
+  /* Mock test cards */
+  .test-grid, .tests-grid, .mock-grid, .mock-tests-grid {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+  }
+
+  .test-card, .mock-card {
+    width: 100% !important;
+    padding: 16px !important;
+  }
+
+  /* Quiz header */
+  .quiz-header, .test-header, .question-header {
+    padding: 12px !important;
+    gap: 8px !important;
+  }
+
+  .quiz-header h1, .test-header h1, .question-header h1 {
+    font-size: 20px !important;
+    line-height: 1.25 !important;
+  }
+
+  /* Timer and live stats */
+  .timer, .countdown {
+    font-size: 20px !important;
+    min-width: 0 !important;
+  }
+
+  .stats, .quiz-stats, .live-stats {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 7px !important;
+  }
+
+  .stat, .stat-card {
+    min-width: 0 !important;
+    padding: 9px !important;
+  }
+
+  /* Question */
+  .question, .question-card, .quiz-question {
+    width: 100% !important;
+    padding: 15px !important;
+    margin: 0 0 12px !important;
+  }
+
+  .question-text, .question-title, .question h2, .question h3 {
+    font-size: 16px !important;
+    line-height: 1.55 !important;
+    overflow-wrap: anywhere;
+  }
+
+  /* Answer choices */
+  .options, .answer-options, .choices {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 9px !important;
+  }
+
+  .option, .answer-option, .choice,
+  .options button, .answer-options button, .choices button {
+    width: 100% !important;
+    min-height: 48px !important;
+    padding: 12px 13px !important;
+    text-align: left !important;
+    white-space: normal !important;
+    overflow-wrap: anywhere;
+    line-height: 1.4 !important;
+  }
+
+  /* Explanation / feedback */
+  .feedback, .explanation, .answer-explanation,
+  .correct-answer, .result-box {
+    padding: 12px !important;
+    font-size: 14px !important;
+    line-height: 1.55 !important;
+    overflow-wrap: anywhere;
+  }
+
+  /* Question navigation */
+  .question-nav, .question-navigator, .navigator {
+    display: grid !important;
+    grid-template-columns: repeat(6, minmax(0, 1fr)) !important;
+    gap: 5px !important;
+  }
+
+  .question-nav button, .question-navigator button,
+  .navigator button {
+    min-width: 0 !important;
+    min-height: 38px !important;
+    padding: 6px 3px !important;
+    font-size: 12px !important;
+  }
+
+  /* Previous / next / finish */
+  .quiz-controls, .navigation-controls, .question-controls,
+  .test-controls {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 8px !important;
+  }
+
+  .quiz-controls button, .navigation-controls button,
+  .question-controls button, .test-controls button {
+    min-height: 46px !important;
+    width: 100% !important;
+  }
+
+  /* Notes */
+  .study-section, .notes-section, .study-container {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 12px !important;
+  }
+
+  .study-header {
+    padding: 20px 16px !important;
+    border-radius: 14px !important;
+  }
+
+  .study-header h1 {
+    font-size: 23px !important;
+    line-height: 1.25 !important;
+  }
+
+  .study-header p {
+    font-size: 14px !important;
+  }
+
+  .study-tabs {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 7px !important;
+  }
+
+  .study-tab {
+    width: 100% !important;
+    min-height: 44px !important;
+    padding: 9px 7px !important;
+    font-size: 13px !important;
+  }
+
+  .tip-card {
+    padding: 15px !important;
+    margin-bottom: 12px !important;
+    border-radius: 12px !important;
+  }
+
+  .tip-card h3 {
+    font-size: 17px !important;
+    line-height: 1.35 !important;
+  }
+
+  .tip-card p, .tip-card li {
+    font-size: 14px !important;
+    line-height: 1.65 !important;
+  }
+
+  .formula, .shortcut, .warning, .important, .mini-example {
+    padding: 11px 12px !important;
+    font-size: 13px !important;
+    line-height: 1.55 !important;
+    overflow-wrap: anywhere;
+  }
+
+  /* Tables become horizontally scrollable rather than breaking the page */
+  .verbal-table, table {
+    display: block !important;
+    width: 100% !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch;
+    white-space: normal !important;
+  }
+
+  .verbal-table th, .verbal-table td,
+  table th, table td {
+    min-width: 120px;
+    padding: 9px !important;
+    font-size: 12px !important;
+  }
+
+  /* Result page */
+  .result, .results, .result-card, .score-card {
+    width: 100% !important;
+    padding: 15px !important;
+  }
+
+  .result-grid, .score-grid, .section-breakdown {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* Very small phones */
+@media (max-width: 420px) {
+  body {
+    font-size: 14px;
+  }
+
+  nav a, .navbar a, .top-nav a, .main-nav a {
+    font-size: 12px !important;
+    padding: 8px 10px !important;
+  }
+
+  .container, .app, .app-container, .main-container,
+  .content, .page, .wrapper {
+    padding-left: 9px !important;
+    padding-right: 9px !important;
+  }
+
+  .stats, .quiz-stats, .live-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+
+  .question-nav, .question-navigator, .navigator {
+    grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
+  }
+
+  .quiz-controls, .navigation-controls, .question-controls,
+  .test-controls {
+    grid-template-columns: 1fr !important;
+  }
+
+  .study-tabs {
+    grid-template-columns: 1fr !important;
+  }
+
+  .study-header h1 {
+    font-size: 21px !important;
+  }
+
+  .question-text, .question-title, .question h2, .question h3 {
+    font-size: 15px !important;
+  }
+}
+
+/* Landscape phones */
+@media (max-width: 900px) and (orientation: landscape) {
+  .options, .answer-options, .choices {
+    grid-template-columns: 1fr 1fr !important;
+  }
+
+  .study-tabs {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  }
+}
+</style>
+
+</head>
 <body>
 <header>
 <div class="header-left">
